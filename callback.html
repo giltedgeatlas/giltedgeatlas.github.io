@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gilt Edge Atlas · Connected</title>
+<style>
+body{margin:0;background:#0b1a33;color:#e9e2d0;font:17px/1.6 Georgia,serif}
+.wrap{max-width:40rem;margin:0 auto;padding:3rem 16px}
+h1{color:#d6b068;font-weight:600;letter-spacing:.04em}
+code{display:block;background:#10223f;border:1px solid #2a3d5e;padding:1rem;word-break:break-all;font-size:15px}
+button{margin-top:1rem;background:#d6b068;color:#0b1a33;border:0;padding:.6rem 1.2rem;font:inherit;cursor:pointer}
+</style></head><body><div class="wrap">
+<h1>ULP Studio Publisher</h1>
+<p id="msg">Checking the response…</p>
+<code id="url" hidden></code>
+<button id="copy" hidden>Copy</button>
+<p><a href="index.html" style="color:#d6b068">Gilt Edge Atlas</a></p>
+</div>
+<script>
+const q=new URLSearchParams(location.search),msg=document.getElementById('msg'),box=document.getElementById('url'),btn=document.getElementById('copy');
+if(q.get('code')){msg.textContent='Access granted. Copy the line below and send it to the studio server operator. It works only once and expires within minutes.';
+box.textContent=location.href;box.hidden=false;btn.hidden=false;
+btn.onclick=()=>{navigator.clipboard.writeText(location.href).then(()=>btn.textContent='Copied')};}
+else if(q.get('error')){msg.textContent='Access was not granted: '+(q.get('error_description')||q.get('error'));}
+else{msg.textContent='This page receives the answer when the owner connects the studio account.';}
+</script></body></html>
