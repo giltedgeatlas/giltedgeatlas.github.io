@@ -7,41 +7,83 @@
 <meta name="description" content="The moments history almost forgot — in 60 seconds. Real archive photos.">
 <meta property="og:title" content="Gilt Edge Atlas">
 <meta property="og:description" content="The moments history almost forgot — in 60 seconds.">
-<meta property="og:image" content="https://giltedgeatlas.github.io/links/avatar.jpg">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<meta property="og:image" content="https://giltedgeatlas.github.io/links/hero.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap">
 <style>
-:root { --bg:#0b1a33; --card:#10223f; --ink:#ece2cc; --muted:#a9b2c6; --gold:#d6b068; --rule:#2a3d5e; }
-* { box-sizing: border-box; }
-body { margin:0; min-height:100vh; background: radial-gradient(ellipse at top, #16294a 0%, var(--bg) 60%); color:var(--ink);
-  font-family:"Cormorant Garamond", Georgia, serif; display:flex; justify-content:center; }
-.wrap { width:100%; max-width:440px; padding:48px 16px 40px; text-align:center; }
-img.av { width:112px; height:112px; border-radius:50%; border:2px solid var(--gold); }
-h1 { font-family:"Cinzel", Georgia, serif; color:var(--gold); font-size:28px; letter-spacing:.06em; margin:18px 0 4px; }
-p.tag { font-size:21px; margin:0 0 6px; }
-p.sub { color:var(--muted); font-size:15px; letter-spacing:.12em; text-transform:uppercase; margin:0 0 28px; font-family:"Cinzel", Georgia, serif; }
-a.btn { display:flex; align-items:center; justify-content:center; gap:10px; margin:12px 0; padding:15px 18px; border-radius:12px;
-  background:var(--card); border:1px solid var(--rule); color:var(--ink); text-decoration:none; font-size:20px; font-weight:600;
-  transition: border-color .15s, transform .15s; }
-a.btn:hover, a.btn:focus { border-color:var(--gold); transform:translateY(-1px); }
-a.btn.main { border-color:var(--gold); }
-a.btn span { color:var(--gold); font-size:15px; font-weight:500; }
-footer { margin-top:30px; color:var(--muted); font-size:15px; }
-footer a { color:var(--gold); }
+/* v2 26.11: owner «всё съехало к центру — попробуй сетку»: full-width banner + grid of platform cards */
+:root { --bg:#0b1a33; --card:#10223f; --card2:#142a4d; --ink:#ece2cc; --muted:#a9b2c6; --gold:#d6b068; --rule:#253a5c; }
+* { box-sizing:border-box; }
+html, body { margin:0; }
+body { background:var(--bg); color:var(--ink); font-family:"Cormorant Garamond", Georgia, serif; font-size:19px; line-height:1.5; }
+.hero { position:relative; width:100%; height:clamp(190px, 30vw, 420px); overflow:hidden; border-bottom:1px solid var(--gold); }
+.hero img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 16px; }
+.intro { display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:center; margin:-48px 0 34px; position:relative; }
+.intro img { width:108px; height:108px; border-radius:50%; border:3px solid var(--gold); background:var(--bg); }
+.intro h1 { font-family:"Cinzel", Georgia, serif; color:var(--gold); font-size:clamp(24px, 3vw, 32px); letter-spacing:.06em; margin:40px 0 2px; }
+.intro p { margin:0; color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+.card { display:grid; grid-template-columns:52px 1fr auto; gap:14px; align-items:center; padding:20px 22px; min-height:104px;
+  background:linear-gradient(160deg, var(--card2), var(--card)); border:1px solid var(--rule); border-radius:14px;
+  color:var(--ink); text-decoration:none; transition:border-color .15s, transform .15s; }
+.card:hover, .card:focus-visible { border-color:var(--gold); transform:translateY(-2px); outline:none; }
+.card.wide { grid-column:span 2; }
+.ico { width:52px; height:52px; border-radius:50%; border:1.5px solid var(--gold); display:grid; place-items:center;
+  color:var(--gold); font-family:"Cinzel", Georgia, serif; font-size:20px; font-weight:700; }
+.card b { display:block; font-size:22px; font-weight:700; }
+.card small { display:block; color:var(--muted); font-size:16px; line-height:1.35; }
+.go { color:var(--gold); font-size:24px; }
+.about { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin:34px 0; padding:26px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.about h2 { font-family:"Cinzel", Georgia, serif; color:var(--gold); font-size:15px; letter-spacing:.14em; margin:0 0 6px; }
+.about p { margin:0; color:var(--muted); font-size:17px; }
+footer { padding:0 0 40px; color:var(--muted); font-size:16px; display:flex; flex-wrap:wrap; gap:8px 22px; justify-content:space-between; }
+footer a { color:var(--gold); text-decoration:none; }
+@media (max-width: 860px) {
+  .grid, .about { grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid, .about { grid-template-columns:1fr; }
+  .card.wide { grid-column:auto; }
+  .intro { grid-template-columns:1fr; justify-items:start; margin-top:-40px; gap:4px; }
+  .intro img { width:84px; height:84px; }
+  .intro h1 { margin-top:8px; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <img class="av" src="avatar.jpg" alt="Gilt Edge Atlas logo">
-  <h1>GILT EDGE ATLAS</h1>
-  <p class="tag">The moments history almost forgot</p>
-  <p class="sub">Expeditions · Disasters · Battles</p>
-  <a class="btn main" href="https://www.youtube.com/@giltedgeatlas">▶ YouTube <span>Shorts &amp; films</span></a>
-  <a class="btn" href="https://t.me/giltedgeatlas">✈ Telegram <span>exclusive archive finds</span></a>
-  <a class="btn" href="https://www.tiktok.com/@giltedgeatlas">♪ TikTok</a>
-  <a class="btn" href="https://x.com/GiltEdgeAtlas">𝕏 X</a>
-  <a class="btn" href="https://www.instagram.com/giltedgeatlas">◎ Instagram</a>
-  <footer>Business: <a href="mailto:giltedgeatlas@gmail.com">giltedgeatlas@gmail.com</a><br>
-    Real archive photos · AI-voiced narration · <a href="/privacy.html">Privacy</a></footer>
-</div>
+<header class="hero"><img src="hero.jpg" alt="Gilt Edge Atlas — the moments history almost forgot"></header>
+<main class="wrap">
+  <section class="intro">
+    <img src="avatar.jpg" alt="Gilt Edge Atlas logo">
+    <div>
+      <h1>GILT EDGE ATLAS</h1>
+      <p>True stories from the archives — lost expeditions, great disasters, battles and ancient puzzles, told in 60 seconds.</p>
+    </div>
+  </section>
+
+  <section class="grid" aria-label="Where to watch">
+    <a class="card wide" href="https://www.youtube.com/@giltedgeatlas"><span class="ico">▶</span>
+      <span><b>YouTube</b><small>Daily Shorts and longer documentary films · @giltedgeatlas</small></span><span class="go">→</span></a>
+    <a class="card" href="https://t.me/giltedgeatlas"><span class="ico">✈</span>
+      <span><b>Telegram</b><small>Exclusive archive finds · vote for the next story</small></span><span class="go">→</span></a>
+    <a class="card" href="https://www.tiktok.com/@giltedgeatlas"><span class="ico">♪</span>
+      <span><b>TikTok</b><small>@giltedgeatlas</small></span><span class="go">→</span></a>
+    <a class="card" href="https://www.instagram.com/giltedgeatlas"><span class="ico">◎</span>
+      <span><b>Instagram</b><small>Reels, photos and carousels</small></span><span class="go">→</span></a>
+    <a class="card" href="https://x.com/GiltEdgeAtlas"><span class="ico">𝕏</span>
+      <span><b>X</b><small>@GiltEdgeAtlas</small></span><span class="go">→</span></a>
+  </section>
+
+  <section class="about">
+    <div><h2>REAL ARCHIVES</h2><p>Original photographs, newspapers, paintings and maps — public domain and credited.</p></div>
+    <div><h2>CHECKED FACTS</h2><p>Every story is built from documented sources; theories are labelled as theories.</p></div>
+    <div><h2>AI NARRATION</h2><p>The voice is synthetic. The research and the pictures are real.</p></div>
+  </section>
+
+  <footer>
+    <span>Business: <a href="mailto:giltedgeatlas@gmail.com">giltedgeatlas@gmail.com</a></span>
+    <span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · An Unmapped Legends Production</span>
+  </footer>
+</main>
 </body>
 </html>
